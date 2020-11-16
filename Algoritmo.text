@@ -1,0 +1,59 @@
+Algoritmo "Sacar Dinheiro"
+
+Início:
+    var quantidadeSacar: 500; ### pensando no valor ###
+    
+    Andar();
+    Abrir porta();
+    Verificar pessoas();
+    var pessoas - 1; ### contar quantas pessoas menos você ###
+
+    Função (Verificar Fila) {
+        Se pessoas > 0 {
+            Enquanto (pessoas != 0) {
+                esperar();
+                
+                Observar Se Pessoas Sairam();
+                var pessoasSairam;
+                Se pessoasSairam > 0 {
+                    pessoas -1;
+                }
+
+                Observar Se Pessoas Entraram();
+                var pessoasEntraram;
+                Se pessoasEntraram > 0 {
+                    pessoas -1;
+                }
+            }
+        } Senão {
+          Andar até o caixa();
+        }
+    }
+
+    Inserir Cartão();
+    Esperar();
+
+    Verificar Mensagem na Tela();
+    var Mensagem na Tela;
+
+    Se Mensagem na Tela == "Erro" {
+        chamar gerente();
+    } Senão {
+        Digitar sua senha();
+    }
+
+    Verificar Saldo();
+    var saldo;
+    
+    Se saldo >= quantidadeSacar {
+        sacar(quantidadeSacar);
+    } Senão {
+        sacar(saldo);
+    }
+
+    Encerrar Seção();
+    Retirar Dinheiro();
+    Retirar Cartão();
+    Abrir porta();
+    Sair();
+FIM
