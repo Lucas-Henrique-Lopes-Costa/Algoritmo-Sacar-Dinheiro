@@ -5,23 +5,27 @@ Início:
     
     Andar();
     Abrir porta();
+    Andar();
     Verificar pessoas();
     var pessoas - 1; ### contar quantas pessoas menos você ###
+    Verificar caixas();
+    var caixas;
+    var fila: pessoas - caixa;
 
-    Função (Verificar Fila) {
-        Se pessoas > 0 {
+    Função Verificar Fila {
+        Se (filas > 0) {
             Enquanto (pessoas != 0) {
                 esperar();
                 
                 Observar Se Pessoas Sairam();
                 var pessoasSairam;
-                Se pessoasSairam > 0 {
+                Se (pessoasSairam > 0) {
                     pessoas -1;
                 }
 
                 Observar Se Pessoas Entraram();
                 var pessoasEntraram;
-                Se pessoasEntraram > 0 {
+                Se (pessoasEntraram > 0) {
                     pessoas -1;
                 }
             }
@@ -32,14 +36,25 @@ Início:
 
     Inserir Cartão();
     Esperar();
+    Se () Digitar sua senha();
 
     Verificar Mensagem na Tela();
     var Mensagem na Tela;
 
     Se Mensagem na Tela == "Erro" {
-        chamar gerente();
+        Digitar Senha ()
+        
+        Olhar Horário();
+        var Horário;
+        
+        Se (Horário > 18) {
+            chamar gerente();    
+        } Senão {
+            Entrar na Fila();
+            Verificar Fila();
+        }
     } Senão {
-        Digitar sua senha();
+        
     }
 
     Verificar Saldo();
@@ -53,6 +68,7 @@ Início:
 
     Encerrar Seção();
     Retirar Dinheiro();
+    Guardar 
     Retirar Cartão();
     Abrir porta();
     Sair();
