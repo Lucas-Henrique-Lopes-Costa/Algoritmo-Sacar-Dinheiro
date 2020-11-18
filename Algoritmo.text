@@ -1,75 +1,151 @@
 Algoritmo "Sacar Dinheiro"
 
 Início:
-    var quantidadeSacar: 500; ### pensando no valor ###
+    var quantidadeSacar: 500; # pensando no valor #
     
     Andar();
-    Abrir porta();
-    Andar();
-    Verificar pessoas();
-    var pessoas - 1; ### contar quantas pessoas menos você ###
-    Verificar caixas();
+    function Abrir Porta { # Fazendo um bloco  de ações para usar depois #
+        Verificar Situação da Porta();
+        var Porta;
+        Se (Porta == "fechada") {
+            Abrir Porta();
+            Andar();
+        } Senão {
+            Andar();
+        }
+    }
+
+    Contar pessoas();
+    var pessoas - 1; # contar quantas pessoas menos você #
+    
+    Contar caixas();
     var caixas;
+    
     var fila: pessoas - caixa;
 
-    Função Verificar Fila {
-        Se (filas > 0) {
-            Enquanto (pessoas != 0) {
+    function Verificar Fila {
+        Se (fila > 0) {
+            Enquanto (fila != 0) {
                 esperar();
                 
-                Observar Se Pessoas Sairam();
-                var pessoasSairam;
-                Se (pessoasSairam > 0) {
-                    pessoas -1;
-                }
+                Contar pessoas();
+                var pessoas - 1; # contar quantas pessoas menos você #
 
                 Observar Se Pessoas Entraram();
                 var pessoasEntraram;
-                Se (pessoasEntraram > 0) {
-                    pessoas -1;
-                }
+    
+                var fila: pessoas - caixa - pessoasEntraram;
+            }
+            Andar até o caixa();
+        } Senão {
+            Andar até o caixa();
+        }
+    }
+
+    function Retirar Dinheiro {
+        Inserir Cartão();
+        Esperar();
+        
+        Lembrar senha();
+        var senha;
+        
+        Se (senha == "") {
+            Colocar digital();
+        } Senão {
+            Verificar Mensagem na Tela();
+            var Mensagem na Tela;
+        }
+
+        Se (Mensagem na Tela == "Erro") {
+            
+            Olhar Horário();
+            var Horário;
+            
+            Se (Horário > 18) {
+                chamar gerente();    
+            } Senão {
+                Entrar na Fila();
+                Verificar Fila; # Usando uma função já criada #
             }
         } Senão {
-          Andar até o caixa();
+            Escolher Opção "Saque;"
+            Verificar Saldo();
+            var saldo;
         }
-    }
-
-    Inserir Cartão();
-    Esperar();
-    Se () Digitar sua senha();
-
-    Verificar Mensagem na Tela();
-    var Mensagem na Tela;
-
-    Se Mensagem na Tela == "Erro" {
-        Digitar Senha ()
         
-        Olhar Horário();
-        var Horário;
-        
-        Se (Horário > 18) {
-            chamar gerente();    
+        Se (saldo >= quantidadeSacar) {
+            sacar(quantidadeSacar);
+            Retirar Dinheiro();
+            Encerrar Seção();
+
+            Verificar Dinheiro();
+            var Dinheiro;
+
+            Se (Dinheiro == 0) {
+                Olhar Horário();
+                var Horário;
+                
+                Se (Horário > 18) {
+                    chamar gerente();    
+                } Senão {
+                    Tentar Outro Dia();
+                }
+            } Senão {
+                Guardar Dinheiro();
+            }
+        } Senão Se (saldo < quantidadeSacar & saldo > 0) {
+            sacar(saldo);
+            Retirar Dinheiro();
+            Encerrar Seção();
+            
+            Verificar Dinheiro();
+            var Dinheiro;
+            Se (Dinheiro == 0) {
+                Olhar Horário();
+                var Horário;
+                
+                Se (Horário > 18) {
+                    chamar gerente();    
+                } Senão {
+                    Tentar Outro Dia();
+                }
+            } Senão {
+                Guardar Dinheiro();
+            }
         } Senão {
-            Entrar na Fila();
-            Verificar Fila();
+            var Dinheiro: "Sem Dinheiro";
         }
-    } Senão {
-        
     }
 
-    Verificar Saldo();
-    var saldo;
-    
-    Se saldo >= quantidadeSacar {
-        sacar(quantidadeSacar);
-    } Senão {
-        sacar(saldo);
-    }
-
-    Encerrar Seção();
-    Retirar Dinheiro();
-    Guardar 
     Retirar Cartão();
-    Abrir porta();
+    Abrir Porta;
     Sair();
+    
+    Observar Pessoas()
+    var ObsPessoas;
+    Se (ObsPessoas == "me seguindo") {
+        Procurar uma loja();
+        var loja;
+        Se (loja == "encontrei ") {
+            Andar();
+            Abrir Porta;
+            Entrar();
+            Enquanto (ObsPessoas == "me seguindo") {
+                Pedir Ajuda();
+                Ligar para polícia();
+            }
+            Se (pessoa == "foi embora") {
+                Abrir Porta;
+                Sair();
+            }
+        } Senão {
+            Pedir ajuda();
+            Ligar para polícia();
+        }
+    } Senão Se (ObsPessoas == "assalto") {
+        Se render();
+        Passar tudo ();
+    } Senão {
+        Viver feliz para sempre();
+    }
 FIM
